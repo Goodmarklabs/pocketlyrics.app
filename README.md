@@ -20,7 +20,7 @@ Plain HTML and CSS: no build step, no scripts, no analytics, cookies or trackers
 
 - **Privacy and Terms** are copies of the pages in the `goodmark-website` repo (`pocket-lyrics/privacy`, `pocket-lyrics/terms`), which are the masters. Copy the `<article>` and the "On this page" list across unchanged when they change, keeping the effective date; only link targets differ (`/privacy/`, `/terms/`, and the delete-account page on goodmarklabs.com).
 - **Screenshots** in `assets/img/` are real captures of the released app (phone size, light mode, sample public-domain songs). Never use drawn or AI-generated screens. Each is WebP at 390 and 780 px wide plus a 780 px JPEG, shown inside the CSS phone frame (`.phone`).
-- **Store badges** are the official artwork, unaltered: `assets/badges/google-play.png`. The App Store shows "Coming soon" until the app is live.
+- **Store badges** are the official artwork, unaltered: `assets/badges/google-play.png` and `assets/badges/app-store.svg` (from Apple's marketing tools).
 - `assets/og.png` (1200 x 630) is the link preview image, laid out in HTML from the real screenshots.
 - Update `sitemap.xml` when a page is added, and bump `?v=` on `site.css` in every page when the CSS changes.
 - `.nojekyll` makes GitHub Pages serve the files as they are.
