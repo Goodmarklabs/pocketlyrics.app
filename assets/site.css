@@ -91,7 +91,7 @@ p { margin: 0 0 1em; }
 .phone::before { content: ""; position: absolute; top: calc(9px + 2.6%); left: 50%; width: 28%; height: 0; padding-top: 7.2%; transform: translateX(-50%); border-radius: 999px; background: #1F2027; z-index: 1; }
 /* The screenshots have no status bar, so a cream strip above each one holds the camera notch. */
 .phone picture { display: block; border-radius: 37px; overflow: hidden; background: var(--bg); padding-top: 12%; }
-.phone img { width: 100%; aspect-ratio: 390 / 844; }
+.phone img { width: 100%; height: auto; } /* shape comes from each image's width and height */
 .phone-sm { max-width: 240px; padding: 7px; border-radius: 38px; }
 .phone-sm::before { top: calc(7px + 2.6%); }
 .phone-sm picture { border-radius: 31px; }
@@ -116,6 +116,8 @@ p { margin: 0 0 1em; }
 /* Sections */
 .section { padding: 3.5rem 0; }
 .section-alt { background: var(--raised); }
+.section-detect { padding-top: 0; }
+.section-detect .showcase { padding-top: 0; }
 .section-head { max-width: 42rem; margin-bottom: 2rem; }
 .section-head p { color: var(--muted); font-size: 1.1rem; }
 .eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 0.6rem; }
