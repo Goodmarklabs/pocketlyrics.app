@@ -1,4 +1,7 @@
-/* Pocket Lyrics website. Colours match the app's light theme (src/theme/palette.ts). */
+/* Pocket Lyrics website. Colours match the app's light theme (src/theme/palette.ts), with a warm
+   dark theme for browsers set to dark. Declaring both schemes (here and in the page's
+   color-scheme meta) stops Chrome and Samsung Internet applying their own forced darkening,
+   which dims the app screenshots and turns the cream strip above them dark. */
 @font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("/assets/fonts/Inter-400Regular.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("/assets/fonts/Inter-600SemiBold.woff2") format("woff2"); }
 @font-face { font-family: "Inter"; font-weight: 700; font-style: normal; font-display: swap; src: url("/assets/fonts/Inter-700Bold.woff2") format("woff2"); }
@@ -17,11 +20,48 @@
   --mint: #93DDBE;
   --peach: #FBC59C;
   --sky: #98CAF2;
+  --on-accent: #1F2027;   /* text on lavender, mint and peach fills, in both themes */
+  --header-bg: rgba(251, 247, 240, 0.92);
+  --dash: #CFC6B6;
+  --accent-hover: #B6A4EC;
+  --shadow: rgba(31, 32, 39, 0.12);
+  --frame-edge: #3A3D47;
+  --cta-bg: #1F2027;
+  --cta-text: #F5F1EA;
+  --cta-muted: #C9C7D0;
+  --cta-border: #5E6070;
+  /* The app screenshots are of the app's light theme, so the strip above them stays cream. */
+  --screen: #FBF7F0;
   --radius: 20px;
   --wrap: 72rem;
   --gutter: 1rem;
-  color-scheme: light;
+  color-scheme: light dark;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1B1916;          /* warm near-black */
+    --raised: #24211D;
+    --card: #2A2622;
+    --border: #3A3530;
+    --text: #F5F1EA;
+    --muted: #B3ACA2;
+    --accent: #C3B4F0;
+    --accent-ink: #C9BCF7;  /* lavender text on the dark background */
+    --accent-soft: #332C44;
+    --chord: #F0A86A;
+    --header-bg: rgba(27, 25, 22, 0.92);
+    --dash: #5A534B;
+    --accent-hover: #D2C6F5;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --frame-edge: #4A4D57;
+    --cta-bg: #2C2638;
+    --cta-text: #F5F1EA;
+    --cta-muted: #C9C2D6;
+    --cta-border: #6A6080;
+  }
+}
+/* App screenshots and store badges are always shown as they are: never filtered or dimmed. */
+.phone img, .store-badge img { filter: none; opacity: 1; mix-blend-mode: normal; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
@@ -51,7 +91,7 @@ p { margin: 0 0 1em; }
 .skip-link:focus { left: 0.5rem; }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 5; background: rgba(251, 247, 240, 0.92); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--border); }
+.site-header { position: sticky; top: 0; z-index: 5; background: var(--header-bg); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--border); }
 .site-header .wrap { display: flex; align-items: center; gap: 1rem; min-height: 4rem; }
 .brand { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
 .brand img { width: 34px; height: 34px; border-radius: 9px; }
@@ -59,12 +99,12 @@ p { margin: 0 0 1em; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
 .site-nav a { display: block; padding: 0.5rem 0.8rem; border-radius: 999px; color: var(--text); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
 .site-nav a:hover { background: var(--raised); }
-.site-nav a[aria-current="page"] { background: var(--accent); }
+.site-nav a[aria-current="page"] { background: var(--accent); color: var(--on-accent); }
 .menu { display: none; margin-left: auto; position: relative; }
-.menu summary { list-style: none; cursor: pointer; padding: 0.55rem 0.9rem; border-radius: 999px; background: var(--card); border: 1px solid var(--border); font-weight: 600; font-size: 0.95rem; }
+.menu summary { color: var(--text); list-style: none; cursor: pointer; padding: 0.55rem 0.9rem; border-radius: 999px; background: var(--card); border: 1px solid var(--border); font-weight: 600; font-size: 0.95rem; }
 .menu summary::-webkit-details-marker { display: none; }
-.menu[open] summary { background: var(--accent); border-color: var(--accent); }
-.menu ul { position: absolute; right: 0; top: calc(100% + 0.5rem); list-style: none; margin: 0; padding: 0.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 12px 40px rgba(31, 32, 39, 0.12); min-width: 13rem; }
+.menu[open] summary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.menu ul { position: absolute; right: 0; top: calc(100% + 0.5rem); list-style: none; margin: 0; padding: 0.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 12px 40px var(--shadow); min-width: 13rem; }
 .menu li a { display: block; padding: 0.7rem 0.9rem; border-radius: 12px; color: var(--text); text-decoration: none; font-weight: 500; }
 .menu li a:hover, .menu li a[aria-current="page"] { background: var(--raised); }
 @media (max-width: 47.99rem) {
@@ -74,23 +114,23 @@ p { margin: 0 0 1em; }
 
 /* Buttons and badges */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 3rem; padding: 0.7rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 1px solid transparent; }
-.btn-primary { background: var(--accent); color: var(--text); }
-.btn-primary:hover { background: #B6A4EC; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-hover); }
 .btn-ghost { background: var(--card); color: var(--text); border-color: var(--border); }
 .btn-ghost:hover { background: var(--raised); }
 .store-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
 .store-badge { display: inline-block; line-height: 0; border-radius: 10px; }
 .store-badge img { height: 56px; width: auto; }
-.soon { display: inline-flex; align-items: center; gap: 0.55rem; min-height: 56px; padding: 0 1.1rem; border-radius: 12px; border: 1.5px dashed #CFC6B6; color: var(--muted); font-weight: 600; font-size: 0.95rem; line-height: 1.25; }
+.soon { display: inline-flex; align-items: center; gap: 0.55rem; min-height: 56px; padding: 0 1.1rem; border-radius: 12px; border: 1.5px dashed var(--dash); color: var(--muted); font-weight: 600; font-size: 0.95rem; line-height: 1.25; }
 .soon svg { width: 22px; height: 22px; flex: none; }
-.pill { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--accent); color: var(--text); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; vertical-align: 0.15em; }
+.pill { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; vertical-align: 0.15em; }
 .pill-free { background: var(--mint); }
 
 /* Phone frame around real app screenshots */
-.phone { position: relative; width: 100%; max-width: 300px; margin: 0 auto; padding: 9px; border-radius: 46px; background: #1F2027; box-shadow: 0 1px 0 1px #3A3D47 inset, 0 30px 60px -20px rgba(31, 32, 39, 0.35), 0 12px 24px -12px rgba(31, 32, 39, 0.25); }
+.phone { position: relative; width: 100%; max-width: 300px; margin: 0 auto; padding: 9px; border-radius: 46px; background: #1F2027; box-shadow: 0 1px 0 1px var(--frame-edge) inset, 0 30px 60px -20px rgba(31, 32, 39, 0.35), 0 12px 24px -12px rgba(31, 32, 39, 0.25); }
 .phone::before { content: ""; position: absolute; top: calc(9px + 2.6%); left: 50%; width: 28%; height: 0; padding-top: 7.2%; transform: translateX(-50%); border-radius: 999px; background: #1F2027; z-index: 1; }
 /* The screenshots have no status bar, so a cream strip above each one holds the camera notch. */
-.phone picture { display: block; border-radius: 37px; overflow: hidden; background: var(--bg); padding-top: 12%; }
+.phone picture { display: block; border-radius: 37px; overflow: hidden; background: var(--screen); padding-top: 12%; }
 .phone img { width: 100%; height: auto; } /* shape comes from each image's width and height */
 .phone-sm { max-width: 240px; padding: 7px; border-radius: 38px; }
 .phone-sm::before { top: calc(7px + 2.6%); }
@@ -204,7 +244,7 @@ p { margin: 0 0 1em; }
 .plan li::before { content: ""; position: absolute; left: 0; top: 0.8em; width: 1.05rem; height: 1.05rem; border-radius: 999px; background: var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-5' fill='none' stroke='%231F2027' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
 .plan-pro li::before { background-color: var(--accent); }
 .plan .fine { color: var(--muted); font-size: 0.92rem; margin-top: auto; }
-.trial { display: inline-block; background: var(--peach); border-radius: 999px; padding: 0.2rem 0.75rem; font-weight: 600; font-size: 0.9rem; }
+.trial { display: inline-block; color: var(--on-accent); background: var(--peach); border-radius: 999px; padding: 0.2rem 0.75rem; font-weight: 600; font-size: 0.9rem; }
 
 /* FAQ */
 .faq { max-width: 46rem; }
@@ -251,10 +291,10 @@ p { margin: 0 0 1em; }
 .note p:last-child { margin: 0; }
 
 /* Call to action band */
-.cta { background: var(--text); color: #F5F1EA; border-radius: 28px; padding: 2.25rem 1.5rem; display: grid; gap: 1.5rem; align-items: center; }
-.cta h2 { color: #F5F1EA; margin-bottom: 0.4rem; }
-.cta p { color: #C9C7D0; margin: 0; }
-.cta .soon { color: #C9C7D0; border-color: #5E6070; }
+.cta { background: var(--cta-bg); color: var(--cta-text); border-radius: 28px; padding: 2.25rem 1.5rem; display: grid; gap: 1.5rem; align-items: center; }
+.cta h2 { color: var(--cta-text); margin-bottom: 0.4rem; }
+.cta p { color: var(--cta-muted); margin: 0; }
+.cta .soon { color: var(--cta-muted); border-color: var(--cta-border); }
 @media (min-width: 52rem) { .cta { grid-template-columns: 1.3fr auto; padding: 2.75rem 3rem; } }
 
 /* Footer */
