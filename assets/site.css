@@ -143,6 +143,9 @@ p { margin: 0 0 1em; }
 /* The screenshots have no status bar, so a cream strip above each one holds the camera notch. */
 .phone picture { display: block; border-radius: 37px; overflow: hidden; background: var(--screen); padding-top: 12%; }
 .phone img { width: 100%; height: auto; } /* shape comes from each image's width and height */
+/* A screenshot taken with a sheet open has the screen dimmed behind it; its strip takes the
+   screenshot's own dimmed top colour (sampled from capo-780.jpg) so the two match. */
+.phone-dimmed picture { background: #ADABAA; }
 .phone-sm { max-width: 240px; padding: 7px; border-radius: 38px; }
 .phone-sm::before { top: calc(7px + 2.6%); }
 .phone-sm picture { border-radius: 31px; }
@@ -250,6 +253,15 @@ p { margin: 0 0 1em; }
 .showcase .shots { display: flex; justify-content: center; gap: 1rem; }
 .showcase .shots .phone { max-width: 260px; }
 .showcase .shots .phone + .phone { display: none; }
+/* Detect with two equal phones (instrument and Voice mode). On phones and tablets they sit side
+   by side at the hero's phone size, instead of the second one being hidden. */
+@media (max-width: 51.99rem) {
+  .showcase .shots-pair { gap: 0.75rem; }
+  .showcase .shots-pair .phone { width: min(44vw, 240px); max-width: none; margin: 0; flex: none; padding: 6px; border-radius: 30px; }
+  .showcase .shots-pair .phone + .phone { display: block; }
+  .showcase .shots-pair .phone::before { top: calc(6px + 2.6%); }
+  .showcase .shots-pair .phone picture { border-radius: 24px; }
+}
 @media (min-width: 52rem) {
   .showcase { grid-template-columns: 1fr 1fr; gap: 4rem; padding: 3.5rem 0; }
   .showcase.flip .shots { order: -1; }

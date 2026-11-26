@@ -1,14 +1,14 @@
 # pocketlyrics.app
 
 The Pocket Lyrics product website, served by GitHub Pages from `main` with the custom domain in `CNAME`.
-Plain HTML and CSS: no build step, no scripts, no analytics, cookies or trackers. Fonts (Inter, SIL OFL) are self-hosted.
+Plain HTML and CSS: no build step, no analytics, cookies or trackers. The only script is `assets/video.js`, which swaps the home page video's poster for the youtube-nocookie.com player when someone presses play (nothing loads from YouTube before then). Fonts (Inter, SIL OFL) are self-hosted.
 
 ## Pages
 
 | Path | Page |
 | --- | --- |
 | `/` | Home |
-| `/features/` | Songs & chords, Transpose & capo, Auto-scroll, Set lists, Detect, Chords library, Tuner |
+| `/features/` | Songs & chords, Transpose & capo, Auto-scroll, Set lists, Detect, Voice mode, Chords library, Tuner |
 | `/pricing/` | Free and Pro (NZ$4.99/month or NZ$34.99/year, 3-day free trial) |
 | `/faq/` | Questions, with FAQPage structured data |
 | `/support/` | support@goodmarklabs.com and quick help |

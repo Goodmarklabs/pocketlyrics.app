@@ -30,7 +30,7 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preload" href="/assets/fonts/Inter-400Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/Inter-700Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/site.css?v=20261125">
+  <link rel="stylesheet" href="/assets/site.css?v=20261126b">
   <script src="/assets/video.js?v=20261125" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Pocket Lyrics","url":"https://pocketlyrics.app/","description":"A chords and lyrics songbook app for musicians and worship teams: chords over lyrics, transpose, capo, auto-scroll, set lists, chord detection, a chord library and a guitar tuner.","applicationCategory":"MultimediaApplication","applicationSubCategory":"Music","operatingSystem":"iOS, Android","image":"https://pocketlyrics.app/assets/icons/icon-512.png","screenshot":["https://pocketlyrics.app/assets/img/song-780.jpg","https://pocketlyrics.app/assets/img/detect-eb7-780.jpg","https://pocketlyrics.app/assets/img/set-780.jpg"],"installUrl":["https://apps.apple.com/app/id6832144730","https://play.google.com/store/apps/details?id=com.goodmark.pocketlyrics"],"downloadUrl":["https://apps.apple.com/app/id6832144730","https://play.google.com/store/apps/details?id=com.goodmark.pocketlyrics"],"sameAs":["https://apps.apple.com/app/id6832144730","https://play.google.com/store/apps/details?id=com.goodmark.pocketlyrics"],"offers":[{"@type":"Offer","name":"Free download","price":"0","priceCurrency":"USD","description":"Free to download and use for up to 10 songs. Offers in-app purchases: Pocket Lyrics Pro subscriptions."},{"@type":"Offer","name":"Pocket Lyrics Pro (monthly, in-app purchase)","price":"2.99","priceCurrency":"USD"},{"@type":"Offer","name":"Pocket Lyrics Pro (yearly, in-app purchase)","price":"19.99","priceCurrency":"USD"}],"publisher":{"@type":"Organization","name":"Goodmark Limited","url":"https://goodmarklabs.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Pocket Lyrics","url":"https://pocketlyrics.app/"}</script>
@@ -84,13 +84,15 @@
             <p>Play a chord on your guitar or keyboard and Pocket Lyrics names it, shows how sure it is, and what else it could be. Tap the chord to see how to play it.</p>
             <ul class="ticks">
               <li>Song mode follows recorded music and suggests the key.</li>
+              <li>Voice mode: sing or hum a song and see the possible keys.</li>
               <li>Processed on your phone. Nothing is recorded or uploaded.</li>
               <li>Part of Pocket Lyrics Pro, with a 3-day free trial.</li>
             </ul>
             <p style="margin-top:1.5rem"><a class="btn btn-ghost" href="/features/#detect">More about Detect</a></p>
           </div>
-          <div class="shots">
-            <div class="phone"><picture><source type="image/webp" srcset="/assets/img/detect-eb7-390.webp 390w, /assets/img/detect-eb7-780.webp 780w" sizes="(min-width: 52rem) 250px, 270px"><img src="/assets/img/detect-eb7-780.jpg" width="390" height="810" alt="Detect in instrument mode naming the chord Eb7, 63% sure" loading="lazy" decoding="async"></picture></div>
+          <div class="shots shots-pair">
+            <div class="phone"><picture><source type="image/webp" srcset="/assets/img/detect-eb7-390.webp 390w, /assets/img/detect-eb7-780.webp 780w" sizes="(min-width: 52rem) 250px, 44vw"><img src="/assets/img/detect-eb7-780.jpg" width="390" height="810" alt="Detect in instrument mode naming the chord Eb7, 63% sure" loading="lazy" decoding="async"></picture></div>
+            <div class="phone"><picture><source type="image/webp" srcset="/assets/img/voice-390.webp 390w, /assets/img/voice-780.webp 780w" sizes="(min-width: 52rem) 250px, 44vw"><img src="/assets/img/voice-780.jpg" width="390" height="810" alt="Detect in Voice mode showing the sung note E and the possible keys B and E" loading="lazy" decoding="async"></picture></div>
           </div>
         </div>
       </div>
@@ -109,6 +111,9 @@
           <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M3 6h.01M3 12h.01M3 18h.01" stroke-width="3"/></svg></span><h3>Set lists</h3><p>Put songs in playing order for a service, rehearsal or gig, with a key for each song.</p></li>
           <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 1 1 12 0c0 3-2 4-3 5.5S14 18 12 19.5 8 20 8 18"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-1.5 2-1.5 3"/></svg></span><h3>Detect <span class="pill">Pro</span></h3><p>Play a chord and Pocket Lyrics names it, or let it follow a recording and write the chords down.</p></li>
           <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4"/><path d="M12 3v2M3 13h2M19 13h2"/></svg></span><h3>Tuner</h3><p>A guitar tuner built in, with standard, drop D and half-step-down tunings.</p></li>
+          <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><h3>Voice mode <span class="pill">Pro</span></h3><p>Sing or hum a song and see the possible keys. Part of Detect.</p></li>
+          <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10v6M9 13l3 3 3-3"/></svg></span><h3>Open ChordPro files</h3><p>Open ChordPro (.cho) files from Files, email or chat, and add them to your songbook.</p></li>
+          <li class="card"><span class="icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></span><h3>Share several songs</h3><p>Pick several songs and share them at once as PDF, ChordPro or text. PDF is part of Pro.</p></li>
         </ul>
         <p style="margin-top:1.75rem"><a class="btn btn-ghost" href="/features/">See all features</a></p>
       </div>
