@@ -143,6 +143,9 @@ p { margin: 0 0 1em; }
 /* The screenshots have no status bar, so a cream strip above each one holds the camera notch. */
 .phone picture { display: block; border-radius: 37px; overflow: hidden; background: var(--screen); padding-top: 12%; }
 .phone img { width: 100%; height: auto; } /* shape comes from each image's width and height */
+/* A screenshot taken with a sheet open has the screen dimmed behind it; its strip takes the
+   screenshot's own dimmed top colour (sampled from capo-780.jpg) so the two match. */
+.phone-dimmed picture { background: #ADABAA; }
 .phone-sm { max-width: 240px; padding: 7px; border-radius: 38px; }
 .phone-sm::before { top: calc(7px + 2.6%); }
 .phone-sm picture { border-radius: 31px; }
